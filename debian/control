@@ -1,15 +1,48 @@
-Source: template-repository
-Section: unknown
+Source: hfst-ospell
+Section: science
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian Science Team <debian-science-maintainers@alioth-lists.debian.net>
+Uploaders: Tino Didriksen <tino@didriksen.cc>,
+           Kartik Mistry <kartik@debian.org>
+Build-Depends: autoconf,
+               debhelper-compat (= 13),
+               libarchive-dev,
+               libicu-dev,
+               pkg-config,
+               zip
+Standards-Version: 4.6.0
+Homepage: https://github.com/hfst/hfst-ospell
+Vcs-Git: https://salsa.debian.org/science-team/hfst-ospell.git
+Vcs-Browser: https://salsa.debian.org/science-team/hfst-ospell
+Rules-Requires-Root: no
 
-Package: template-repository
+Package: hfst-ospell
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: libhfstospell11 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Spell checker library and tool based on HFST
+ Minimal HFST optimized lookup format based spell checker library and
+ a demonstrational implementation of command line based spell checker.
+
+Package: libhfstospell11
+Architecture: any
+Multi-Arch: same
+Section: libs
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Provides: libhfstospell
+Description: HFST spell checker runtime libraries
+ Minimal HFST optimized lookup format based spell checker library and
+ a demonstrational implementation of command line based spell checker.
+ .
+ This package provides runtime libraries for hfst-ospell.
+
+Package: hfst-ospell-dev
+Architecture: any
+Section: devel
+Depends: hfst-ospell (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Description: HFST spell checker development files
+ Minimal HFST optimized lookup format based spell checker library and
+ a demonstrational implementation of command line based spell checker.
+ .
+ This package provides development headers and libraries for hfst-ospell.
