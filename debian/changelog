@@ -1,3 +1,9 @@
+hfst-ospell (0.5.3-2deepin0) unstable; urgency=medium
+
+  * No source change upload against GCC 12.
+
+ -- Tianyu Chen <sweetyfish@deepin.org>  Thu, 19 Sep 2024 22:49:02 +0800
+
 hfst-ospell (0.5.3-2) unstable; urgency=medium
 
   * Team upload
